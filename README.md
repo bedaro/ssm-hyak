@@ -1,7 +1,7 @@
-Support framework for running SSM models on Hyak in a way that minimizes
-required storage. Models are run in their own instance directories in a
-"scratch" location. Hydrodynamic outputs are kept in temporary locations
-and are re-synchronized from a remote save location when needed.
+Support framework for running SSM models on [Hyak](https://hyak.uw.edu/docs/)
+in a way that minimizes required storage. Models are run in their own instance
+directories in a "scratch" location. Hydrodynamic outputs are kept in temporary
+locations and are re-synchronized from a remote save location when needed.
 
 The main functionality is implemented in the script `ssm_hyak.py`. This
 script requires a relatively recent version of Python (that supports
