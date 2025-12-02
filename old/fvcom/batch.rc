@@ -1,0 +1,8 @@
+casename="ssm"
+
+mpi_bin="fvcom2.7d_impi"
+
+# Where your model runs are kept on klone
+run_root="/mmfs1/gscratch/brett/$USER"
+# Where to save model outputs
+save_root="ondra.mooo.com:wqmodels/ssm"

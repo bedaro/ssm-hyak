@@ -1,0 +1,7 @@
+[Unit]
+Description=Synchronize SSM job outputs to remote storage
+ConditionHost=klone-login01
+
+[Service]
+Type=oneshot
+ExecStart=/gscratch/brett/ssm/bin/ssm_hyak.py -v sync

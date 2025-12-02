@@ -1,0 +1,21 @@
+BOOL_T  = T
+BOOL_F  = F
+
+ISCAL1  = 7
+ISCAL2  = -27
+
+FSCAL1  = 0.3
+FSCAL2  = -47.83
+FSCAL3  = .4
+FSCAL4  = 36.
+
+STR1    = habitability
+STR2    = regurgitates
+
+IVEC    = 47 -70 12 196 180 167 -151 -117 15 33
+
+FVEC    = .5507747 718. 394.2054225 -270.189766 165.70646 455.8357346 \\
+552.01910 375.8217536
+
+CVEC    = ermines rebroadcasting elbowing frizzier 96 saxophones oppression \\
+infanticides rephrased

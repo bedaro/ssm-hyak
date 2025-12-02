@@ -1,0 +1,18 @@
+casename="ssm"
+
+# ICM v2
+#mpi_bin="FVCOM_ICM_v2ecy_pH_interp_TAinitialFromInput"
+#modules="intel/oneAPI/2021.1.1"
+
+# Tarang's original ICM v4 build
+#mpi_bin="FVCOM_ICM_v4_pH_TAinitialFromInput"
+#modules="intel/oneAPI/2021.1.1"
+
+# My ICM v4 build
+mpi_bin="FVCOM_ICM_v4ben_TAinitialFromInput"
+modules="stf/netcdf/c-ompi/4.8.1"
+
+# Where your model runs are kept on klone
+run_root="/mmfs1/gscratch/brett/$USER"
+# Where to save model outputs
+save_root="ondra.mooo.com:wqmodels/ssm"

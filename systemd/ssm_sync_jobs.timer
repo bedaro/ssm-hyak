@@ -1,0 +1,11 @@
+[Unit]
+Description=SSM Sync Jobs timer
+ConditionHost=klone-login01
+
+[Timer]
+OnBootSec=10m
+OnUnitInactiveSec=30m
+AccuracySec=5m
+
+[Install]
+WantedBy=timers.target

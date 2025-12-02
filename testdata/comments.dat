@@ -1,0 +1,7 @@
+! This is a comment
+
+!!! Another comment
+VAL = T  ! comment on same line
+!! Yet another comment
+
+
