@@ -194,8 +194,8 @@ class HyakSetupHelper:
         logger.info('==== Staging inputs ====')
         scratch_path = self._stage(outdir, 'hyd_results')
 
-        shutil.copytree(inpdir, scratch_path / inpdir)
-        shutil.copy2(runfile, scratch_path)
+        shutil.copytree(inpdir, scratch_path / inpdir, copy_function=shutil.copy)
+        shutil.copy(runfile, scratch_path)
         instance_root = Path(os.getcwd())
         with open(scratch_path / 'run_fvcom.sh','w') as b:
             self._write_job_file(b, 'run_fvcom.stub')
@@ -238,11 +238,11 @@ class HyakSetupHelper:
         logger.info('==== Staging inputs ====')
         scratch_path = self._stage('outputs', 'wqm_results')
 
-        shutil.copytree('inputs', scratch_path / 'inputs')
+        shutil.copytree('inputs', scratch_path / 'inputs', copy_function=shutil.copy)
         runfile = f"{self.casename}_run.dat"
         if Path(runfile).is_file():
-            shutil.copy2(runfile, scratch_path)
-        shutil.copy2('wqm_con.npt', scratch_path)
+            shutil.copy(runfile, scratch_path)
+        shutil.copy('wqm_con.npt', scratch_path)
         # Search through wqm_con.npt for files that are not in inputs/ or outputs/
         with open('wqm_con.npt') as wc:
             try:
@@ -253,7 +253,7 @@ class HyakSetupHelper:
                         while filecand != '':
                             if filecand[:7] != 'inputs/' and filecand[:8] != 'outputs/':
                                 logger.info(f'Found extra file {filecand} to copy')
-                                shutil.copy2(filecand, scratch_path)
+                                shutil.copy(filecand, scratch_path)
                             filecand = next(wc).strip()
             except StopIteration:
                 pass
@@ -262,7 +262,7 @@ class HyakSetupHelper:
             wqmlink_patch = {'hydro_netcdf': {'hydro_dir': os.fspath(hyd_result_nc) + '/'}}
             f90nml.patch('wqm_linkage.in', wqmlink_patch, os.fspath(scratch_path / 'wqm_linkage.in'))
         else:
-            shutil.copy2('wqm_linkage.in', scratch_path)
+            shutil.copy('wqm_linkage.in', scratch_path)
         instance_root = Path(os.getcwd())
         with open(scratch_path / 'run_icm.sh','w') as b:
             self._write_job_file(b, instance_root / 'run_icm.stub')
